@@ -2,13 +2,13 @@
 <html lang="en">
 <meta charset="utf-8">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>生日快乐</title>
 
     <link rel="stylesheet" type="text/css" href="depends/css/style.css">
-    <script type="text/javascript" src="depends/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="depends/js/jquery.min.js"></script>
     <script type="text/javascript" src="depends/js/vector.js"></script>
     <script>
         function myfunction() {
@@ -18,7 +18,7 @@
             if (x == "" || y == "") {
                 alert("You won't forget your name, will you? (～￣(OO)￣)ブ")
             } else if (x == "pyy" && y == "pyy0527") {
-                window.location.href = "login.html";
+                window.location.href = "birthday.html";
             } else {
                 alert("You won't forget your name, will you? (≧∇≦)ﾉ");
             }
@@ -47,5 +47,17 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(function(){
+        Victor("container", "output");   //登陆背景函数
+        $("#entry_name").focus();
+        $(document).keydown(function(event){
+            if(event.keyCode==13){
+                $("#entry_btn").click();
+            }
+        });
+    });
+</script>
 </body>
 </html>
