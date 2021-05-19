@@ -19,7 +19,7 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.3);
             z-index: 99999;
             opacity: 1;
             -webkit-transition: opacity 400ms ease-in;
@@ -35,18 +35,17 @@
 
         .modal > div {
             width: 400px;
+            height: 300px;
             position: relative;
-            margin: 10% auto;
+            margin: 15% auto;
             padding: 5px 20px 13px 20px;
-            border-radius: 10px;
-            background: #fff;
-            background: -moz-linear-gradient(#fff, #999);
-            background: -webkit-linear-gradient(#fff, #999);
-            background: -o-linear-gradient(#fff, #999);
+            border-radius: 100px;
+            background: #FFB6C1;
+            /*background: ;#FFB6C1*transparent*/
         }
 
         .yes, .no {
-            background: #606061;
+            background: transparent;
             color: #FFFFFF;
             line-height: 25px;
             position: absolute;
@@ -167,8 +166,8 @@
         <div>
             <a id="yes" href="#" title="YES" class="yes">是</a>
             <a id="no" href="#" title="NO" class="no">否</a>
-            <h2>提示信息：</h2>
-            <p>是否允许本页中的音/视频自动播放？</p>
+            <h2 style="padding: 25% 20% 0 20%; font-family: 'Concert One', cursive; font-size: 20px">提示信息：</h2>
+            <p style="padding: 0 20% 0 20%; font-family: 'Concert One', cursive; font-size: 20px">是否允许本页中的音/视频自动播放？</p>
         </div>
     </div>
 </div>
