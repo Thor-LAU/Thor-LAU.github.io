@@ -11,40 +11,6 @@
     <script type="text/javascript" src="depends/js/jquery.min.js"></script>
     <script type="text/javascript" src="depends/js/vector.js"></script>
     <script>
-        window.onload = function () {
-            let oA = document.querySelector("#a1");
-            let userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
-
-            //chrome下的判断
-            if (userAgent.indexOf("Chrome") > -1) {//判断是否是Chrome浏览器
-                //alert("我是 Chrome");
-                    let timer = null;
-                    function autoPlay() {//自动播放函数
-                        if (oA.paused) { //判读是否暂停
-                            oA.paused = false;
-                            oA.volume = 0.5;
-                            oA.play();
-                        } else {
-                            clearInterval(timer);
-                        }
-                    }
-                    timer = setInterval(autoPlay, 1);//执行自动播放
-            } else if (userAgent.indexOf("Firefox") > -1) {//判断是否是FireFox浏览器
-                //alert("我是 Chrome");
-                    let timer = null;
-                    function autoPlay() {//自动播放函数
-                        if (oA.paused) { //判读是否暂停
-                            oA.paused = false;
-                            oA.volume = 0.1;
-                            oA.play();
-                        } else {
-                            clearInterval(timer);
-                        }
-                    }
-                    timer = setInterval(autoPlay, 1);//执行自动播放
-            }
-        }
-
         function myfunction() {
             var x = document.getElementById("entry_name").value;
             var y = document.getElementById("entry_password").value;

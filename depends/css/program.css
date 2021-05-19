@@ -1,11 +1,12 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     overflow: hidden;
     height: 100%;
+    width: 100%;
     background: linear-gradient(rgb(255, 255, 255) 0%, #ffffff 100%);
 }
 
@@ -23,6 +24,7 @@ html {
     margin-left: 42%;
     width: 200px;
     height: 200px;
+    padding: 150px 0px 150px 0px;
     transform: rotateX(-30deg) rotateY(-80deg);
     transform-style: preserve-3d;
     animation: rotate 15s infinite;
