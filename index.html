@@ -10,85 +10,15 @@
     <link rel="stylesheet" type="text/css" href="depends/css/style1.css">
     <script type="text/javascript" src="depends/js/jquery.min.js"></script>
     <script type="text/javascript" src="depends/js/vector.js"></script>
-    <style>
-        /*模态框的样式*/
-        .modal {
-            position: fixed;
-            font-family: Arial, Helvetica, sans-serif;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 99999;
-            opacity: 1;
-            -webkit-transition: opacity 400ms ease-in;
-            -moz-transition: opacity 400ms ease-in;
-            transition: opacity 400ms ease-in;
-            pointer-events: auto;
-        }
-
-        .none {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .modal > div {
-            width: 400px;
-            height: 300px;
-            position: relative;
-            margin: 15% auto;
-            padding: 5px 20px 13px 20px;
-            border-radius: 100px;
-            background: #FFB6C1;
-            /*background: ;#FFB6C1*transparent*/
-        }
-
-        .yes, .no {
-            background: transparent;
-            color: #FFFFFF;
-            line-height: 25px;
-            position: absolute;
-            right: -12px;
-            text-align: center;
-            top: -10px;
-            width: 24px;
-            text-decoration: none;
-            font-weight: bold;
-            -webkit-border-radius: 12px;
-            -moz-border-radius: 12px;
-            border-radius: 12px;
-            -moz-box-shadow: 1px 1px 3px #000;
-            -webkit-box-shadow: 1px 1px 3px #000;
-            box-shadow: 1px 1px 3px #000;
-        }
-
-        .no {
-            right: 24px;
-        }
-
-        .yes:hover, .no:hover {
-            background: #00d9ff;
-        }
-    </style>
     <script>
         window.onload = function () {
             let oA = document.querySelector("#a1");
-
-            let oModal = document.querySelector("#modal");
-            let oYes = document.querySelector("#yes");
-            let oNo = document.querySelector("#no");
-
             let userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
 
             //chrome下的判断
             if (userAgent.indexOf("Chrome") > -1) {//判断是否是Chrome浏览器
                 //alert("我是 Chrome");
-                oModal.className = "modal";
-                oYes.onclick = function () {//选择是
-                    oModal.className = "none";//隐藏模态框
                     let timer = null;
-
                     function autoPlay() {//自动播放函数
                         if (oA.paused) { //判读是否暂停
                             oA.paused = false;
@@ -98,19 +28,10 @@
                             clearInterval(timer);
                         }
                     }
-
                     timer = setInterval(autoPlay, 1);//执行自动播放
-                };
-                oNo.onclick = function () {//选择否
-                    oModal.className = "none";//隐藏模态框，无自动播放
-                }
             } else if (userAgent.indexOf("Firefox") > -1) {//判断是否是FireFox浏览器
                 //alert("我是 Chrome");
-                oModal.className = "modal";
-                oYes.onclick = function () {//选择是
-                    oModal.className = "none";//隐藏模态框
                     let timer = null;
-
                     function autoPlay() {//自动播放函数
                         if (oA.paused) { //判读是否暂停
                             oA.paused = false;
@@ -120,12 +41,7 @@
                             clearInterval(timer);
                         }
                     }
-
                     timer = setInterval(autoPlay, 1);//执行自动播放
-                };
-                oNo.onclick = function () {//选择否
-                    oModal.className = "none";//隐藏模态框，无自动播放
-                }
             }
         }
 
@@ -145,8 +61,7 @@
 </head>
 <body>
 
-<audio id="a1" controls="controls" autoplay="autoplay" src="depends/music/大Q秉洛、元若蓝 - 心愿便利贴.mp3" loop="true"
-       hidden="hidden"></audio>
+
 <div id="container">
     <div id="output">
         <div class="containerT">
@@ -159,15 +74,6 @@
 
                 <div id="prompt" class="prompt"></div>
             </form>
-        </div>
-    </div>
-    <!--模态框-->
-    <div id="modal" class="none">
-        <div>
-            <a id="yes" href="#" title="YES" class="yes">是</a>
-            <a id="no" href="#" title="NO" class="no">否</a>
-            <h2 style="padding: 25% 20% 0 20%; font-family: 'Concert One', cursive; font-size: 20px">提示信息：</h2>
-            <p style="padding: 0 20% 0 20%; font-family: 'Concert One', cursive; font-size: 20px">是否允许本页中的音/视频自动播放？</p>
         </div>
     </div>
 </div>

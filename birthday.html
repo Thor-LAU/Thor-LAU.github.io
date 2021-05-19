@@ -132,8 +132,42 @@
     </style>
 
 
-    <!-- 按钮点击事件-->
+    <!--事件-->
     <script type="text/javascript">
+        window.onload = function () {
+            let oA = document.querySelector("#a1");
+            let userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+
+            //chrome下的判断
+            if (userAgent.indexOf("Chrome") > -1) {//判断是否是Chrome浏览器
+                //alert("我是 Chrome");
+                let timer = null;
+                function autoPlay() {//自动播放函数
+                    if (oA.paused) { //判读是否暂停
+                        oA.paused = false;
+                        oA.volume = 0.5;
+                        oA.play();
+                    } else {
+                        clearInterval(timer);
+                    }
+                }
+                timer = setInterval(autoPlay, 1);//执行自动播放
+            } else if (userAgent.indexOf("Firefox") > -1) {//判断是否是FireFox浏览器
+                //alert("我是 Chrome");
+                let timer = null;
+                function autoPlay() {//自动播放函数
+                    if (oA.paused) { //判读是否暂停
+                        oA.paused = false;
+                        oA.volume = 0.1;
+                        oA.play();
+                    } else {
+                        clearInterval(timer);
+                    }
+                }
+                timer = setInterval(autoPlay, 1);//执行自动播放
+            }
+        }
+
         function delayURL(url, time) {
             setTimeout("top.location.href = '" + url + "'", time);
         }
@@ -143,12 +177,8 @@
 </head>
 <body>
 
-
-<!--<audio autoplay="autoplay" loop="loop" preload="auto"-->
-
-<!--       src="depends/video/Josh Vietti - Because of You.mp3">-->
-<!--</audio>   &lt;!&ndash;music &ndash;&gt;-->
-
+<audio id="a1" controls="controls" autoplay="autoplay" src="depends/music/王雪晶%20-%20生日快乐%20(纯音乐).mp3" loop="true"
+       hidden="hidden"></audio>
 
 <a href="#" onclick="delayURL('FelicityCake.html',1500)">
     <button class="bubbly-button">Surprise ! (o゜▽゜)o☆[GO!]</button>
