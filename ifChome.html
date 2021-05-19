@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="depends/css/program.css">
+    <title>audio和video在Chrome下的自动播放解决方案</title>
+
     <style>
         /*模态框的样式*/
         .modal {
@@ -72,6 +71,9 @@
             let userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
 
             //chrome下的判断
+            console.log("浏览器类型--->" + userAgent);
+            console.log(userAgent.indexOf("Chrome"));
+
             if (userAgent.indexOf("Chrome") > -1){//判断是否是Chrome浏览器
                 //alert("我是 Chrome");
                 oModal.className="modal";
@@ -81,7 +83,7 @@
                     function autoPlay() {//自动播放函数
                         if (oA.paused) { //判读是否暂停
                             oA.paused=false;
-                            oA.volume=0.5;
+                            oA.volume=0.1;
                             oA.play();
                         }else {
                             clearInterval(timer);
@@ -117,9 +119,9 @@
     </script>
 </head>
 <body>
-<!--<embed src="depends/music/白小白 - 最美婚礼.mp3" autostart="true" loop="true" width="0" height="0"/>-->
-<audio id="a1" controls="controls" autoplay="autoplay" src="depends/music/白小白 - 最美婚礼.mp3" loop="true" hidden="hidden"></audio>
-<!--<iframe id="embed" src="depends/music/白小白 - 最美婚礼.mp3" autostart="true"  height="0" width="0" loop="false"></iframe>-->
+<!--音频-->
+<audio id="a1" controls="controls" autoplay="autoplay" src="depends/music/白小白%20-%20最美婚礼.mp3"></audio>
+
 <!--模态框-->
 <div id="modal" class="none">
     <div>
@@ -129,49 +131,6 @@
         <p>是否允许本页中的音/视频自动播放？</p>
     </div>
 </div>
-<div class="cube">
-    <!-- 外层立方体 -->
-    <div class="outer-cube">
-        <div class="outer-top">
-            <img src="depends/images/1.jpg"/>
-        </div>
-        <div class="outer-bottom">
-            <img src="depends/images/2.jpg"/>
-        </div>
-        <div class="outer-front">
-            <img src="depends/images/3.jpg"/>
-        </div>
-        <div class="outer-back">
-            <img src="depends/images/4.jpg"/>
-        </div>
-        <div class="outer-left">
-            <img src="depends/images/5.jpg"/>
-        </div>
-        <div class="outer-right">
-            <img src="depends/images/6.jpg"/>
-        </div>
-    </div>
-    <!-- 内层立方体 -->
-    <div class="inner-cube">
-        <div class="inner-top">
-            <img src="depends/images/7.jpg"/>
-        </div>
-        <div class="inner-bottom">
-            <img src="depends/images/8.jpg"/>
-        </div>
-        <div class="inner-front">
-            <img src="depends/images/9.jpg"/>
-        </div>
-        <div class="inner-back">
-            <img src="depends/images/10.png"/>
-        </div>
-        <div class="inner-left">
-            <img src="depends/images/1.jpg"/>
-        </div>
-        <div class="inner-right">
-            <img src="depends/images/2.jpg"/>
-        </div>
-    </div>
-</div>
+
 </body>
 </html>
