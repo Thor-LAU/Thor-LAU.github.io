@@ -24,7 +24,7 @@ html {
     margin-left: 42%;
     width: 200px;
     height: 200px;
-    padding: 150px 0px 150px 0px;
+    padding: 130px 0px 150px 0px;
     transform: rotateX(-30deg) rotateY(-80deg);
     transform-style: preserve-3d;
     animation: rotate 15s infinite;
