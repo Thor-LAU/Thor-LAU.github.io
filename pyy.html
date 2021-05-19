@@ -10,116 +10,128 @@
         .modal {
             position: fixed;
             font-family: Arial, Helvetica, sans-serif;
-            top:0;
-            right:0;
-            bottom:0;
-            left:0;
-            background:rgba(0,0,0,0.8);
-            z-index:99999;
-            opacity:1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 99999;
+            opacity: 1;
             -webkit-transition: opacity 400ms ease-in;
             -moz-transition: opacity 400ms ease-in;
             transition: opacity 400ms ease-in;
             pointer-events: auto;
         }
-        .none{
+
+        .none {
             opacity: 0;
             pointer-events: none;
         }
+
         .modal > div {
-            width:400px;
+            width: 400px;
             position: relative;
-            margin:10% auto;
-            padding:5px 20px 13px 20px;
-            border-radius:10px;
-            background:#fff;
+            margin: 10% auto;
+            padding: 5px 20px 13px 20px;
+            border-radius: 10px;
+            background: #fff;
             background: -moz-linear-gradient(#fff, #999);
             background: -webkit-linear-gradient(#fff, #999);
             background: -o-linear-gradient(#fff, #999);
         }
-        .yes,.no {
-            background:#606061;
-            color:#FFFFFF;
-            line-height:25px;
+
+        .yes, .no {
+            background: #606061;
+            color: #FFFFFF;
+            line-height: 25px;
             position: absolute;
             right: -12px;
             text-align: center;
             top: -10px;
-            width:24px;
+            width: 24px;
             text-decoration: none;
             font-weight: bold;
-            -webkit-border-radius:12px;
-            -moz-border-radius:12px;
-            border-radius:12px;
-            -moz-box-shadow:1px 1px 3px #000;
-            -webkit-box-shadow:1px 1px 3px #000;
-            box-shadow:1px 1px 3px #000;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 1px 1px 3px #000;
+            -webkit-box-shadow: 1px 1px 3px #000;
+            box-shadow: 1px 1px 3px #000;
         }
-        .no{
+
+        .no {
             right: 24px;
         }
-        .yes:hover, .no:hover{ background:#00d9ff;}
+
+        .yes:hover, .no:hover {
+            background: #00d9ff;
+        }
     </style>
 
     <script>
-        window.onload=function () {
-            let oA=document.querySelector("#a1");
+        window.onload = function () {
+            let oA = document.querySelector("#a1");
 
-            let oModal=document.querySelector("#modal");
-            let oYes=document.querySelector("#yes");
-            let oNo=document.querySelector("#no");
+            let oModal = document.querySelector("#modal");
+            let oYes = document.querySelector("#yes");
+            let oNo = document.querySelector("#no");
 
             let userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
 
             //chrome下的判断
-            if (userAgent.indexOf("Chrome") > -1){//判断是否是Chrome浏览器
+            if (userAgent.indexOf("Chrome") > -1) {//判断是否是Chrome浏览器
                 //alert("我是 Chrome");
-                oModal.className="modal";
-                oYes.onclick=function () {//选择是
-                    oModal.className="none";//隐藏模态框
-                    let timer=null;
+                oModal.className = "modal";
+                oYes.onclick = function () {//选择是
+                    oModal.className = "none";//隐藏模态框
+                    let timer = null;
+
                     function autoPlay() {//自动播放函数
                         if (oA.paused) { //判读是否暂停
-                            oA.paused=false;
-                            oA.volume=0.5;
+                            oA.paused = false;
+                            oA.volume = 0.5;
                             oA.play();
-                        }else {
+                        } else {
                             clearInterval(timer);
                         }
                     }
-                    timer=setInterval(autoPlay,1);//执行自动播放
+
+                    timer = setInterval(autoPlay, 1);//执行自动播放
                 };
-                oNo.onclick=function () {//选择否
-                    oModal.className="none";//隐藏模态框，无自动播放
+                oNo.onclick = function () {//选择否
+                    oModal.className = "none";//隐藏模态框，无自动播放
                 }
-            }else if (userAgent.indexOf("Firefox") > -1){//判断是否是FireFox浏览器
+            } else if (userAgent.indexOf("Firefox") > -1) {//判断是否是FireFox浏览器
                 //alert("我是 Chrome");
-                oModal.className="modal";
-                oYes.onclick=function () {//选择是
-                    oModal.className="none";//隐藏模态框
-                    let timer=null;
+                oModal.className = "modal";
+                oYes.onclick = function () {//选择是
+                    oModal.className = "none";//隐藏模态框
+                    let timer = null;
+
                     function autoPlay() {//自动播放函数
                         if (oA.paused) { //判读是否暂停
-                            oA.paused=false;
-                            oA.volume=0.1;
+                            oA.paused = false;
+                            oA.volume = 0.1;
                             oA.play();
-                        }else {
+                        } else {
                             clearInterval(timer);
                         }
                     }
-                    timer=setInterval(autoPlay,1);//执行自动播放
+
+                    timer = setInterval(autoPlay, 1);//执行自动播放
                 };
-                oNo.onclick=function () {//选择否
-                    oModal.className="none";//隐藏模态框，无自动播放
+                oNo.onclick = function () {//选择否
+                    oModal.className = "none";//隐藏模态框，无自动播放
                 }
             }
         }
     </script>
 </head>
 <body>
-<!--<embed src="depends/music/白小白 - 最美婚礼.mp3" autostart="true" loop="true" width="0" height="0"/>-->
-<audio id="a1" controls="controls" autoplay="autoplay" src="depends/music/白小白 - 最美婚礼.mp3" loop="true" hidden="hidden"></audio>
-<!--<iframe id="embed" src="depends/music/白小白 - 最美婚礼.mp3" autostart="true"  height="0" width="0" loop="false"></iframe>-->
+
+<audio id="a1" controls="controls" autoplay="autoplay" src="depends/music/白小白 - 最美婚礼.mp3" loop="true"
+       hidden="hidden"></audio>
+
 <!--模态框-->
 <div id="modal" class="none">
     <div>
